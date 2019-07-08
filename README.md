@@ -3,13 +3,13 @@
 ## ScreenShots
 <div style="text-align: center"><table><tr>
     <td style="text-align: center">
-<img src="https://github.com/Datlyfe/fluter_tic_tac/blob/master/screenshots/1.jpg" height="400">
+![screenshot1](screenshots/1.jpg)
 </td>
 <td style="text-align: center">
-<img src="https://github.com/Datlyfe/fluter_tic_tac/blob/master/screenshots/2.jpg" height="400">
+![screenshot2](screenshots/2.jpg)
 </td>
 <td style="text-align: center">
-<img src="https://github.com/Datlyfe/fluter_tic_tac/blob/master/screenshots/3.jpg" height="400">
+![screenshot3](screenshots/3.jpg)
 </td>
 </tr>
 </table>
