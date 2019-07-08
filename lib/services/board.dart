@@ -95,9 +95,9 @@ class BoardService {
 
   _playMoveSound(player) {
     if (player == "X") {
-      soundService.playXSound();
+      soundService.playSound('x');
     } else {
-      soundService.playOSound();
+      soundService.playSound('o');
     }
   }
 
@@ -125,14 +125,9 @@ class BoardService {
   }
 
   void switchPlayer(String player) {
-    print("In SWITCH");
-    print(player);
     if (player == 'X') {
-      print("SET TO O");
       _player$.add('O');
     } else {
-      print("SET TO X");
-
       _player$.add('X');
     }
   }

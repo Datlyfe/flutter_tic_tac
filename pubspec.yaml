@@ -15,6 +15,7 @@ dependencies:
   get_it: ^1.0.3+2
   rflutter_alert: ^1.0.3
   audioplayers: ^0.13.0
+  sliding_up_panel: ^0.3.4
 
 dev_dependencies:
   flutter_test:

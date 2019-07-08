@@ -18,7 +18,6 @@ class _PickPageState extends State<PickPage> {
   final boardService = locator<BoardService>();
   final soundService = locator<SoundService>();
 
-
   String groupValue = 'X';
   void setGroupvalue(value) {
     setState(() {
@@ -107,7 +106,8 @@ class _PickPageState extends State<PickPage> {
                   boardService.player$.add("X");
                   boardService.botMove();
                 }
-                soundService.playClickSound();
+                soundService.playSound('click');
+
                 Navigator.push(
                   context,
                   CupertinoPageRoute(

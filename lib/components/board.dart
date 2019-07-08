@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:tic_tac/components/x.dart';
+import 'package:tic_tac/services/alert.dart';
 import 'package:tic_tac/services/board.dart';
 import 'package:tic_tac/services/provider.dart';
 import 'package:tic_tac/theme/theme.dart';
@@ -17,6 +18,7 @@ class Board extends StatefulWidget {
 
 class _BoardState extends State<Board> {
   final boardService = locator<BoardService>();
+  final alertService = locator<AlertService>();
 
   @override
   Widget build(BuildContext context) {
@@ -52,28 +54,11 @@ class _BoardState extends State<Board> {
                         children: <Widget>[X(50, 20), O(50, MyTheme.green)],
                       ));
 
-            var alertStyle = AlertStyle(
-              animationType: AnimationType.grow,
-              isCloseButton: false,
-              isOverlayTapDismiss: true,
-              titleStyle: TextStyle(
-                  color: Color(0xff111111),
-                  fontWeight: FontWeight.w700,
-                  fontSize: 25),
-              descStyle: TextStyle(fontWeight: FontWeight.bold),
-              animationDuration: Duration(milliseconds: 300),
-              buttonAreaPadding: EdgeInsets.all(12),
-              overlayColor: Colors.black.withOpacity(.7),
-              constraints: BoxConstraints(maxHeight: 200, maxWidth: 250),
-              alertBorder: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-            );
             WidgetsBinding.instance.addPostFrameCallback((_) => {
                   Alert(
                     context: context,
                     title: title,
-                    style: alertStyle,
+                    style: alertService.resultAlertStyle,
                     buttons: [],
                     content: Row(
                         mainAxisSize: MainAxisSize.max,
