@@ -14,6 +14,7 @@ dependencies:
   rxdart: ^0.22.0
   get_it: ^1.0.3+2
   rflutter_alert: ^1.0.3
+  audioplayers: ^0.13.0
 
 dev_dependencies:
   flutter_test:
@@ -21,6 +22,11 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+
+  assets:
+    - assets/
+
 
   fonts:
     - family: DancingScript

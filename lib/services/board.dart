@@ -1,6 +1,11 @@
 import 'package:rxdart/rxdart.dart';
 import 'dart:math' as math;
 
+import 'package:tic_tac/services/provider.dart';
+import 'package:tic_tac/services/sound.dart';
+
+final soundService = locator<SoundService>();
+
 enum BoardState { Done, Play }
 enum GameMode { Solo, Multi }
 
@@ -31,6 +36,7 @@ class BoardService {
     List<List<String>> currentBoard = _board$.value;
 
     currentBoard[i][j] = player;
+    _playMoveSound(player);
     _board$.add(currentBoard);
     switchPlayer(player);
 
@@ -84,6 +90,14 @@ class BoardService {
       _score$.add(MapEntry(_score$.value.key, _score$.value.value + 1));
     } else if (winner == "X") {
       _score$.add(MapEntry(_score$.value.key + 1, _score$.value.value));
+    }
+  }
+
+  _playMoveSound(player) {
+    if (player == "X") {
+      soundService.playXSound();
+    } else {
+      soundService.playOSound();
     }
   }
 

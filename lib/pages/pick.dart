@@ -5,6 +5,7 @@ import 'package:tic_tac/components/o.dart';
 import 'package:tic_tac/components/x.dart';
 import 'package:tic_tac/services/board.dart';
 import 'package:tic_tac/services/provider.dart';
+import 'package:tic_tac/services/sound.dart';
 import 'package:tic_tac/theme/theme.dart';
 
 import 'game.dart';
@@ -15,6 +16,8 @@ class PickPage extends StatefulWidget {
 
 class _PickPageState extends State<PickPage> {
   final boardService = locator<BoardService>();
+  final soundService = locator<SoundService>();
+
 
   String groupValue = 'X';
   void setGroupvalue(value) {
@@ -104,6 +107,7 @@ class _PickPageState extends State<PickPage> {
                   boardService.player$.add("X");
                   boardService.botMove();
                 }
+                soundService.playClickSound();
                 Navigator.push(
                   context,
                   CupertinoPageRoute(

@@ -6,10 +6,12 @@ import 'package:tic_tac/pages/game.dart';
 import 'package:tic_tac/pages/pick.dart';
 import 'package:tic_tac/services/board.dart';
 import 'package:tic_tac/services/provider.dart';
+import 'package:tic_tac/services/sound.dart';
 import 'package:tic_tac/theme/theme.dart';
 
 class StartPage extends StatelessWidget {
   final boardService = locator<BoardService>();
+  final soundService = locator<SoundService>();
 
   StartPage({Key key}) : super(key: key);
 
@@ -60,6 +62,8 @@ class StartPage extends StatelessWidget {
                   Btn(
                     onTap: () {
                       boardService.gameMode$.add(GameMode.Solo);
+                      soundService.playClickSound();
+
                       Navigator.push(
                         context,
                         CupertinoPageRoute(
@@ -83,6 +87,7 @@ class StartPage extends StatelessWidget {
                   Btn(
                     onTap: () {
                       boardService.gameMode$.add(GameMode.Multi);
+                      soundService.playClickSound();
                       Navigator.push(
                         context,
                         CupertinoPageRoute(
