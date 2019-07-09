@@ -120,14 +120,11 @@ class _BoardState extends State<Board> {
   Widget _buildBox(int i, int j, item) {
     BoxBorder border = Border();
     BorderSide borderStyle = BorderSide(width: 1, color: Colors.black26);
-    double height;
-    double width;
+    double height=80;
+    double width=60;
     if (j == 1) {
       border = Border(right: borderStyle, left: borderStyle);
       height = width = 80;
-    } else {
-      height = 80;
-      width = 60;
     }
     if (i == 1) {
       border = Border(top: borderStyle, bottom: borderStyle);
