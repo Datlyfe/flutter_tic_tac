@@ -36,122 +36,123 @@ class GamePageState extends State<GamePage> {
                   final int oScore = snapshot.data.value;
 
                   return Container(
+                    // color: Colors.red,
                     width: MediaQuery.of(context).size.width,
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: <Widget>[
-                        Flexible(
-                          flex: 1,
-                          child: Container(
-                            height: double.infinity,
-                            padding: EdgeInsets.all(20),
-                            color: Colors.white,
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                SizedBox(
-                                  height: 40,
-                                  width: 40,
-                                  child: Material(
-                                    elevation: 5,
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(20),
-                                    child: Center(
-                                        child: Text(
-                                      "$xScore",
-                                      style: TextStyle(
-                                          color: Colors.black, fontSize: 18),
-                                    )),
-                                  ),
+                        Expanded(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: <Widget>[
+                              Container(
+                                padding: EdgeInsets.symmetric(horizontal: 20),
+                                color: Colors.white,
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: <Widget>[
+                                    SizedBox(
+                                      height: 40,
+                                      width: 40,
+                                      child: Material(
+                                        elevation: 5,
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(20),
+                                        child: Center(
+                                            child: Text(
+                                          "$xScore",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 18),
+                                        )),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: Container(),
+                                    ),
+                                    X(35, 10),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 10),
+                                      child: Text(
+                                        "Player",
+                                        style: TextStyle(fontSize: 20),
+                                      ),
+                                    )
+                                  ],
                                 ),
-                                Expanded(
-                                  child: Container(),
+                              ),
+                              Container(
+                                  child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[Board()],
+                              )),
+                              Container(
+                                padding: EdgeInsets.symmetric(horizontal: 20),
+                                color: Colors.white,
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: <Widget>[
+                                    O(35, MyTheme.green),
+                                    Padding(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: 10,
+                                      ),
+                                      child: Text(
+                                        "Player",
+                                        style: TextStyle(fontSize: 20),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: Container(),
+                                    ),
+                                    SizedBox(
+                                      height: 40,
+                                      width: 40,
+                                      child: Material(
+                                        elevation: 5,
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(20),
+                                        child: Center(
+                                            child: Text(
+                                          "$oScore",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 18),
+                                        )),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                X(35, 10),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 10),
-                                  child: Text(
-                                    "Player",
-                                    style: TextStyle(fontSize: 20),
-                                  ),
-                                )
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
-                        Flexible(
-                            flex: 4,
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[Board()],
-                            )),
-                        Flexible(
-                          flex: 1,
-                          child: Container(
-                            height: double.infinity,
-                            padding: EdgeInsets.all(20),
-                            color: Colors.white,
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                O(35, MyTheme.green),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 10),
-                                  child: Text(
-                                    "Player",
-                                    style: TextStyle(fontSize: 20),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Container(),
-                                ),
-                                SizedBox(
-                                  height: 40,
-                                  width: 40,
-                                  child: Material(
-                                    elevation: 5,
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(20),
-                                    child: Center(
-                                        child: Text(
-                                      "$oScore",
-                                      style: TextStyle(
-                                          color: Colors.black, fontSize: 18),
-                                    )),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Flexible(
-                          flex: 1,
-                          child: Container(
-                            color: Colors.white,
-                            padding: EdgeInsets.all(20),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                Expanded(
-                                  child: Container(),
-                                ),
-                                IconButton(
-                                  icon: Icon(Icons.home),
-                                  onPressed: () {
-                                    boardService.newGame();
-                                    Navigator.of(context)
-                                        .popUntil((route) => route.isFirst);
-                                  },
-                                  color: Colors.black87,
-                                  iconSize: 30,
-                                ),
-                              ],
-                            ),
+                        Container(
+                          color: Colors.white,
+                          height: 60,
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Expanded(
+                                child: Container(),
+                              ),
+                              IconButton(
+                                icon: Icon(Icons.home),
+                                onPressed: () {
+                                  boardService.newGame();
+                                  Navigator.of(context)
+                                      .popUntil((route) => route.isFirst);
+                                },
+                                color: Colors.black87,
+                                iconSize: 30,
+                              ),
+                            ],
                           ),
                         ),
                       ],
